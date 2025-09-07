@@ -19,7 +19,8 @@ defmodule Lotus.Web.MixProject do
       description: description(),
       source_url: @source_url,
       homepage_url: @source_url,
-      dialyzer: dialyzer()
+      dialyzer: dialyzer(),
+      compilers: [:phoenix_live_view] ++ Mix.compilers()
     ]
   end
 
@@ -39,8 +40,9 @@ defmodule Lotus.Web.MixProject do
 
   defp deps do
     [
+      {:lazy_html, ">= 0.0.0", only: :test},
       {:phoenix, "~> 1.7"},
-      {:phoenix_live_view, "~> 1.0.0"},
+      {:phoenix_live_view, "~> 1.1"},
       {:phoenix_html, "~> 4.0"},
       {:phoenix_ecto, "~> 4.5"},
 
